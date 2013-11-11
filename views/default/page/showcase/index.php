@@ -45,7 +45,7 @@ $vars['title'] = 'Elgg Showcase';
                                 <ul class="elgg-gallery elgg-gallery-showcase" data-ng-controller="ElggShowcase">
                                     <li data-ng-repeat="item in items">
                                         <div class="elgg-showcase-item">
-                                            <img data-ng-src="/mod/showcase/assets/images/{{item.image.url}}" />
+                                            <img data-ng-src="{{siteUrl}}/mod/showcase/assets/images/{{item.image.url}}" />
                                             <div class="elgg-showcase-info">
                                                 <h2 class="elgg-showcase-title">
                                                     <a href="{{item.targetUrl}}">
@@ -99,6 +99,7 @@ $vars['title'] = 'Elgg Showcase';
             });
         
             function ElggShowcase($scope) {
+                $scope.siteUrl = elgg.get_site_url();
                 $scope.items = [{
 			displayName: 'Rotaractivity',
 			summary: 'A centralized platform for Rotaractors worldwide to communicate and collaborate amongst each other and spread the message of love, unity, acceptance and tolerance.',
